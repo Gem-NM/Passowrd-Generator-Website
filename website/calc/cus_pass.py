@@ -1,34 +1,42 @@
-import numpy as np
-def cuss_pass_gen(alpha,nums,schars):
+import os
+import random
 
-    str_pass=''
-    a="abcdefghijkjlmopqrstuvwxyz"
-    b='1234567890'
-    c="!@#$%^&*()"
+
+def custom_pass(alpha,nums,schars):
+    str_pass =""
+    a= "abcdefghijklmnoprstuvwxyz"
+    b= "1234567890"
+    c= "!@#$%^&*()"
+
     length = alpha + nums + schars
-    arr_pass = np.array([None]*length)
-    
-    while None  in arr_pass :
-        while alpha!=0:
-            num = np.random.randint(0,length)
-            if arr_pass[num] == None:
-                arr_pass[num] = a[np.random.randint(26)]
-                alpha = alpha - 1
-        while nums!=0:
-            num = np.random.randint(0,length)
-            if arr_pass[num] == None:
-                arr_pass[num] = b[np.random.randint(10)]
-                nums  = nums -1
-        
+    list_pass =['']*length 
+    indices = [index for index in range(length)]
 
-        while schars!=0:
-            num = np.random.randint(0,length)
-            if arr_pass[num] == None:
-                arr_pass[num] = c[np.random.randint(len(c))]
-                schars = schars -1
-    for i in range(length):
-        str_pass = str_pass + str(arr_pass[i])
+    while alpha!=0:
+        num =  random.choice(indices)
+        indices.remove(num)
+        list_pass[num] =random.choice(a) 
+        alpha = alpha -1
+
+    while nums!=0:
+        num =  random.choice(indices)
+        indices.remove(num)
+        list_pass[num] =random.choice(b) 
+        nums = nums -1
+    
+    while schars!=0:
+        num =  random.choice(indices)
+        indices.remove(num)
+        list_pass[num] =random.choice(c) 
+        schars=schars -1
+
+    str_pass = str.join("",list_pass)
+    #str_pass = ''.join(list_pass)
     return str_pass
 
-if __name__ == "__main__":
-    print(cuss_pass_gen(10,3,3))
+
+
+
+if __name__ =="__main__":
+    print(custom_pass(alpha=3,nums=3,schars=3))
+
