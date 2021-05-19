@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title%}    Custom Generator{% endblock %}
+{% block content%} 
+
+<button color='blue'>
+    <a href="/Ran_Pass_gen">Random Password</a>
+</button>
+
+
+<form method="POST">
+    <!--<label for="pass_len">Enter length of Password</label>
+    <input type='number' name="pass_len" id="pass_len">
+    <br/>
+    <br/>-->
+
+    <label for="abc">Enter No. of alphabets</label>
+    <input type='number' name="abc" id="abc" value={{abc}}>
+    <br/>
+    <br/>
+    <label for="nums">Enter No. of Numerics</label>
+    <input type='number' name="nums" id="nums" value={{nums}}>
+    <br/>
+    <br/>
+    <label for="schar">Enter No. of special Characters</label>
+    <input type='number' name="schar" id="schar" value={{schar}}>
+    <br/>
+    <br/>
+    <button >Generate</button>
+</form>
+    <div id="nuum">
+        {% block nuum%}
+         
+        {% endblock %}
+    </div>
+        
+
+
+
+{% endblock %}

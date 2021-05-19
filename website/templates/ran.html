@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title%}    Random Generator    {% endblock %}
+{% block content%} 
+
+
+<button ><a href="/Cus_Pass_gen">Custom Password</a></button>
+<h3>Random Password Generator</h3>
+<form method="POST">
+
+    <button> Generate Password </button>
+</form>
+<div id="num">
+{% block num%}
+ 
+{% endblock %}
+</div>
+
+
+
+
+{% endblock %}
